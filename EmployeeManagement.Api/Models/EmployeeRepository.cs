@@ -26,11 +26,6 @@ namespace EmployeeManagement.Api.Models
             return await appDbContext.Employees
                 .FirstOrDefaultAsync(e => e.EmployeeId == employeeId);
         }
-        public async Task<Employee> GetEmployeeByEmail(string email)
-        {
-            return await appDbContext.Employees
-                .FirstOrDefaultAsync(e => e.Email == email);
-        }
 
         public async Task<Employee> AddEmployee(Employee employee)
         {
@@ -71,6 +66,21 @@ namespace EmployeeManagement.Api.Models
                 appDbContext.Employees.Remove(result);
                 await appDbContext.SaveChangesAsync();
             }
+        }
+
+        public Task<Employee> GetEmployeeByEmail(string email)
+        {
+            throw new NotImplementedException();
+        }
+
+        public object GetEmployeeByEmail(object email)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task AddEmployee(object employee)
+        {
+            throw new NotImplementedException();
         }
     }
 }
