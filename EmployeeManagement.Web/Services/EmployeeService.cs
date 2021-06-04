@@ -15,6 +15,16 @@ namespace EmployeeManagement.Web.Services
             this.httpClient = httpClient;
         }
 
+        public Task<Employee> CreateEmployee(Employee employee)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Task DeleteEmployee(int employeeId)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public async Task<Employee> GetEmployee(int id)
         {
             return await httpClient.GetJsonAsync<Employee>($"api/employees/{id}");
@@ -24,7 +34,10 @@ namespace EmployeeManagement.Web.Services
         {
             return await httpClient.GetJsonAsync<Employee[]>("api/employees");
         }
+
+        public async Task<Employee> UpdateEmployee(Employee updatedEmployee)
+        {
+            return await httpClient.PutJsonAsync<Employee>("api/employees", updatedEmployee);
+        }
     }
-
 }
-
